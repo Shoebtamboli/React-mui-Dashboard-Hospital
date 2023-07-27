@@ -1,20 +1,22 @@
-import create from "zustand";
+import { create } from 'zustand'
+
+interface ITheme  {
+  palette: {
+    primary: {
+      main: string;
+    };
+    secondary: {
+      main: string;
+    };
+    mode: "light" | "dark";
+  };
+  shape: {
+      borderRadius: number;
+  };
+}
 
 interface ThemeStore {
-  theme: {
-    palette: {
-      primary: {
-        main: string;
-      };
-      secondary: {
-        main: string;
-      };
-      mode: string;
-    };
-    shape: {
-      borderRadius: number;
-    };
-  };
+  theme: ITheme;
   toggleMode: () => void;
   setPrimaryColor: (color: string) => void;
   setSecondaryColor: (color: string) => void;

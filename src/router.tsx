@@ -17,19 +17,6 @@ import Account from "./pages/Account/Account";
 import Settings from "./pages/Settings/Settings";
 import { mockPatientData } from "./mockData";
 
-// const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
-// const AllOrders = React.lazy(() => import("./pages/Orders/AllOrders"));
-// const Profile = React.lazy(() => import("./pages/Profile/Profile"));
-// const DoctorList = React.lazy(() => import("./pages/Profile/DoctorList"));
-// const PatientInfo = React.lazy(() => import("./pages/PatientInfo/PatientInfo"));
-// const PatientList = React.lazy(() => import("./pages/PatientInfo/PatientList"));
-// const Appointments = React.lazy(() =>
-//   import("./pages/Appointments/Appointments")
-// );
-// const Calender = React.lazy(() => import("./pages/Calender/Calender"));
-// const Kanban = React.lazy(() => import("./pages/Kanban/Kanban"));
-// const Account = React.lazy(() => import("./pages/Account/Account"));
-
 const USER_TYPES = {
   NORMAL_USER: "Normal User",
   ADMIN_USER: "Admin User"

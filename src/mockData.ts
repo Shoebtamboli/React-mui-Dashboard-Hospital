@@ -235,7 +235,14 @@ export function createEventId() {
   return String(eventGuid++);
 }
 let todayStr = moment().format("YYYY-MM-DD"); // YYYY-MM-DD of today
-export const INITIAL_EVENTS = [
+
+interface Event {
+  id: string;
+  title: string;
+  start: string;
+}
+
+export const INITIAL_EVENTS: Event[] = [
   {
     id: createEventId(),
     title: "Lunch Pary",

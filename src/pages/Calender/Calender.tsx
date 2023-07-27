@@ -11,8 +11,14 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import useCalendar from "../../store/calender";
 import { createEventId } from "../../mockData";
 
+// Define the type for the useCalendar hook return value
+interface CalendarHook {
+  currentEvents: Event[];
+  setCurrentEvents: (events: Event[]) => void;
+}
+
 function Calender() {
-  const { currentEvents, setCurrentEvents } = useCalendar<any>();
+  const { currentEvents, setCurrentEvents } = useCalendar() as CalendarHook;;
 
   const handleEvents = async (events: any) => {
     await Promise.resolve(setCurrentEvents(events));

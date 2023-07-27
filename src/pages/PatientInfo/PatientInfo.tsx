@@ -11,7 +11,7 @@ import {
   Box,
   Divider,
   Paper,
-  IconButton
+  IconButton,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Toolbar from "@mui/material/Toolbar";
@@ -36,12 +36,14 @@ const PatientInfoSchema = Yup.object().shape({
     "Phone number must contain only digits"
   ),
   diseases: Yup.string().required("Required"),
-  patientHistory: Yup.string()
+  patientHistory: Yup.string(),
 });
 
 const PatientInfo = ({ patients }: any) => {
   const { id } = useParams<{ id: string }>();
-  const patient = patients?.find((patient: any) => patient.id === parseInt(id));
+  const patient = patients?.find(
+    (patient: any) => patient.id === parseInt(id || "", 10)
+  );
 
   const initialValues = {
     firstName: patient.firstName,
@@ -55,7 +57,7 @@ const PatientInfo = ({ patients }: any) => {
     referredByDoctorEmail: patient.referredByDoctorEmail,
     referredByDoctorPhoneNumber: patient.referredByDoctorPhoneNumber,
     diseases: patient.diseases,
-    patientHistory: patient.patientHistory
+    patientHistory: patient.patientHistory,
   };
   const handleSubmit = (values: any, { resetForm }: any) => {
     console.log(values);
@@ -74,7 +76,7 @@ const PatientInfo = ({ patients }: any) => {
               : theme.palette.grey[900],
           flexGrow: 1,
           height: "100vh",
-          overflow: "auto"
+          overflow: "auto",
         }}
       >
         <Toolbar />
@@ -85,12 +87,7 @@ const PatientInfo = ({ patients }: any) => {
               spacing={2}
               sx={{ marginleft: "10px", padding: "20px" }}
             >
-              <IconButton
-                component={Link}
-                to="/patient-list"
-                color="inherit"
-                align="left"
-              >
+              <IconButton component={Link} to="/patient-list" color="inherit">
                 <ArrowBackIcon />
               </IconButton>
               <Grid item xs={12}>
@@ -195,7 +192,11 @@ const PatientInfo = ({ patients }: any) => {
                           </Select>
                           {touched.bloodGroup && errors.bloodGroup && (
                             <Box mt={1} color="red">
-                              {errors.bloodGroup}
+                              {Object.values(errors.bloodGroup).map(
+                                (error: any, index) => (
+                                  <div key={index}>{error}</div>
+                                )
+                              )}
                             </Box>
                           )}
                         </Grid>

@@ -14,7 +14,7 @@ import Team from "./Team";
 interface StyledTabsProps {
   children?: React.ReactNode;
   value: string;
-  onChange: (event: React.SyntheticEvent, newValue: number) => void;
+  onChange: (event: React.SyntheticEvent, newValue: string) => void;
 }
 
 const StyledTabs = styled((props: StyledTabsProps) => (
@@ -37,6 +37,7 @@ const StyledTabs = styled((props: StyledTabsProps) => (
 
 interface StyledTabProps {
   label: string;
+  value: string; // Added value prop here
 }
 
 const StyledTab = styled((props: StyledTabProps) => (
@@ -66,7 +67,7 @@ export default function CustomizedTabs() {
     <Box sx={{ width: "100%" }}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <StyledTabs onChange={handleChange} aria-label="lab API tabs example">
+          <StyledTabs onChange={handleChange} aria-label="lab API tabs example" value={value} >
             <StyledTab label="General" value="1" />
             <StyledTab label="Billing" value="2" />
             <StyledTab label="Team" value="3" />

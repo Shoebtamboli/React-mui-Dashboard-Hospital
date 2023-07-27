@@ -98,7 +98,6 @@ export default function Column({ state }: any) {
         <Typography variant="h6">{state}</Typography>
         <Tooltip title="Add task">
           <IconButton
-            variant="contained"
             color="inherit"
             onClick={() => setOpen(true)}
           >
