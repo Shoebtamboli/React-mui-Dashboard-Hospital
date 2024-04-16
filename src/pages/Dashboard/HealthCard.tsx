@@ -14,7 +14,7 @@ export default function HealthCard(props: {
     <Box
       sx={{
         flexGrow: 1,
-        overflow: "hidden"
+        overflow: "hidden",
       }}
     >
       <Stack
