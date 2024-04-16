@@ -24,92 +24,96 @@ const primarynavList = [
   {
     link: "/dashboard",
     label: "Dashboard",
-    icon: <DashboardIcon />
+    icon: <DashboardIcon />,
   },
   {
     link: "/profile",
     label: "Doctor Profile",
-    icon: <AccountCircleIcon />
+    icon: <AccountCircleIcon />,
   },
   {
     link: "/doctor-list",
     label: "Doctor List",
-    icon: <PeopleIcon />
+    icon: <PeopleIcon />,
   },
   {
     link: "/patient-list",
     label: "Patient List",
-    icon: <SickIcon />
+    icon: <SickIcon />,
   },
   {
     link: "/appointments",
     label: "Appointments",
-    icon: <BookOnlineIcon />
+    icon: <BookOnlineIcon />,
   },
   {
     link: "/calender",
     label: "Calender",
-    icon: <CalendarMonthIcon />
+    icon: <CalendarMonthIcon />,
   },
   {
     link: "/kanban",
     label: "Kanban",
-    icon: <ViewKanbanIcon />
+    icon: <ViewKanbanIcon />,
   },
   {
     link: "/account",
     label: "Account",
-    icon: <ManageAccountsIcon />
-  }
+    icon: <ManageAccountsIcon />,
+  },
 ];
 
 const secondaryNavList = [
   {
     link: "/lab-results",
     label: "Lab Results",
-    icon: <ReceiptLongIcon />
+    icon: <ReceiptLongIcon />,
   },
   {
     link: "/medical-records",
     label: "Medical Records",
-    icon: <DescriptionIcon />
+    icon: <DescriptionIcon />,
   },
   {
     link: "/prescriptions",
     label: "Prescriptions",
-    icon: <AssignmentTurnedInIcon />
+    icon: <AssignmentTurnedInIcon />,
   },
   {
     link: "/plans",
     label: "Care Plans",
-    icon: <AssignmentIcon />
+    icon: <AssignmentIcon />,
   },
   {
     link: "/forms",
     label: "Forms",
-    icon: <DescriptionIcon />
+    icon: <DescriptionIcon />,
   },
   {
     link: "/help",
     label: "Get Help",
-    icon: <HelpIcon />
+    icon: <HelpIcon />,
   },
   {
     link: "/settings",
     label: "Settings",
-    icon: <SettingsIcon />
+    icon: <SettingsIcon />,
   },
   {
     link: "/login",
     label: "Logout",
-    icon: <LogoutIcon />
-  }
+    icon: <LogoutIcon />,
+  },
 ];
 
 export const mainListItems = (
   <React.Fragment>
     {primarynavList.map((data: any, index: any) => (
-      <Link to={data.link} style={{ textDecoration: "none", color: "inherit" }}>
+      <Link
+        key={index}
+        to={data.link}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
         <ListItemButton>
           <ListItemIcon>{data.icon}</ListItemIcon>
           <ListItemText primary={data.label} />
@@ -125,7 +129,11 @@ export const secondaryListItems = (
       Saved reports
     </ListSubheader>
     {secondaryNavList.map((data: any, index: any) => (
-      <Link to={data.link} style={{ textDecoration: "none", color: "inherit" }}>
+      <Link
+        key={index}
+        to={data.link}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
         <ListItemButton>
           <ListItemIcon>{data.icon}</ListItemIcon>
           <ListItemText primary={data.label} />

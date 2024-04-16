@@ -42,14 +42,14 @@ const Transition = React.forwardRef(function Transition(
 
 export default function AppointmentDialog({
   appointments,
-  setAppointments
+  setAppointments,
 }: any) {
   const [open, setOpen] = React.useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<FormValues>();
 
   const handleClickOpen = () => {
@@ -104,7 +104,7 @@ export default function AppointmentDialog({
               fullWidth
               variant="outlined"
               {...register("fullName", {
-                required: "Name is required"
+                required: "Name is required",
               })}
               error={!!errors.fullName}
               helperText={errors.fullName?.message}
@@ -131,7 +131,7 @@ export default function AppointmentDialog({
               variant="outlined"
               placeholder="0 123456789"
               {...register("phone", {
-                required: "Phone no is required"
+                required: "Phone no is required",
               })}
               error={!!errors.phone}
               helperText={errors.phone?.message}
@@ -145,7 +145,7 @@ export default function AppointmentDialog({
               variant="outlined"
               placeholder="ex: 18"
               {...register("age", {
-                required: "Age is required"
+                required: "Age is required",
               })}
               error={!!errors.age}
               helperText={errors.age?.message}
@@ -157,8 +157,8 @@ export default function AppointmentDialog({
                   sx={{ width: "100%" }}
                   slotProps={{
                     textField: {
-                      helperText: "Date is required"
-                    }
+                      helperText: "Date is required",
+                    },
                   }}
                 />
               </DemoContainer>
@@ -172,7 +172,7 @@ export default function AppointmentDialog({
               variant="outlined"
               placeholder="ex: Dr. Smith"
               {...register("referredByDoctor", {
-                required: "Specialist is required"
+                required: "Specialist is required",
               })}
               error={!!errors.referredByDoctor}
               helperText={errors.referredByDoctor?.message}
@@ -186,7 +186,7 @@ export default function AppointmentDialog({
               variant="outlined"
               placeholder="ex: Dr. Smith"
               {...register("assignedDoctor", {
-                required: "Assigned Doctor is required"
+                required: "Assigned Doctor is required",
               })}
               error={!!errors.assignedDoctor}
               helperText={errors.assignedDoctor?.message}
